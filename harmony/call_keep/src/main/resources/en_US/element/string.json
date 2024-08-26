@@ -1,0 +1,16 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "module description"
+    },
+    {
+      "name": "Call_keepAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "Call_keepAbility_label",
+      "value": "label"
+    }
+  ]
+}

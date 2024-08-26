@@ -1,9 +1,9 @@
-import { NativeModules, Platform, Alert } from 'react-native';
+import { NativeModules, Platform, Alert, TurboModuleRegistry  } from 'react-native';
 
 import { listeners, emit } from './actions';
 
-const RNCallKeepModule = NativeModules.RNCallKeep;
-const isIOS = Platform.OS === 'ios';
+const RNCallKeepModule =  TurboModuleRegistry ? TurboModuleRegistry.get('CallKeepNativeModule') : NativeModules.RNCallKeep;
+const isIOS = Platform.OS === 'ios' || Platform.OS === 'harmony';
 const supportConnectionService = !isIOS && Platform.Version >= 23;
 
 const AudioSessionCategoryOption = {
@@ -256,10 +256,10 @@ class RNCallKeep {
   setAudioRoute = (uuid, inputName) => RNCallKeepModule.setAudioRoute(uuid, inputName);
 
   checkIfBusy = () =>
-    isIOS ? RNCallKeepModule.checkIfBusy() : Promise.reject('RNCallKeep.checkIfBusy was called from unsupported OS');
+    isIOS  ? RNCallKeepModule.checkIfBusy() : Promise.reject('RNCallKeep.checkIfBusy was called from unsupported OS');
 
   checkSpeaker = () =>
-    isIOS ? RNCallKeepModule.checkSpeaker() : Promise.reject('RNCallKeep.checkSpeaker was called from unsupported OS');
+    isIOS  ? RNCallKeepModule.checkSpeaker() : Promise.reject('RNCallKeep.checkSpeaker was called from unsupported OS');
 
   setAvailable = (state) => {
     if (isIOS) {
@@ -389,7 +389,7 @@ class RNCallKeep {
       return;
     }
 
-    NativeModules.RNCallKeep.backToForeground();
+    RNCallKeepModule.backToForeground();
   }
 
   getInitialEvents() {

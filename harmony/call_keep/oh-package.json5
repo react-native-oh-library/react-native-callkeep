@@ -1,0 +1,13 @@
+{
+  "name": "@react-native-oh-tpl/react-native-callkeep",
+  "version": "4.3.14-0.0.1",
+  "description": "iOS 10 CallKit and Android ConnectionService Framework For React Native",
+  "main": "index.ets",
+  "author": "",
+  "license": "Apache-2.0",
+  "dependencies": {
+//    "@rnoh/react-native-openharmony": 'file:../react_native_openharmony'
+    "@rnoh/react-native-openharmony": "file:../libs/react_native_openharmony-5.0.0.490.har"
+  },
+}
+
