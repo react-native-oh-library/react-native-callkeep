@@ -38,5 +38,7 @@
   "devDependencies": {
     "react-native": ">=0.40.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "react-native-callkeep": "4.3.14"
+  }
 }
