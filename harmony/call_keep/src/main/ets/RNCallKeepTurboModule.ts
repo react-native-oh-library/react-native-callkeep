@@ -24,7 +24,7 @@
 
 
 import { RNOHLogger, TurboModule } from '@rnoh/react-native-openharmony/ts';
-import { TM } from '@rnoh/react-native-openharmony/generated/ts';
+import { TM } from './generated/ts'
 import { call } from '@kit.TelephonyKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { Context } from '@kit.AbilityKit';

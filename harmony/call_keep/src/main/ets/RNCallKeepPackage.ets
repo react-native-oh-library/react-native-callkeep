@@ -23,7 +23,8 @@
  */
 import { RNPackage, TurboModulesFactory } from '@rnoh/react-native-openharmony/ts';
 import type { TurboModule, TurboModuleContext } from '@rnoh/react-native-openharmony/ts';
-import { TM } from '@rnoh/react-native-openharmony/generated/ts'
+import { RNOHPackage } from '@rnoh/react-native-openharmony'
+import { TM } from './generated/ts'
 import { RNCallKeepTurboModule } from './RNCallKeepTurboModule';
 
 class RNCallKeepTurboModuleFactory extends TurboModulesFactory {
@@ -39,7 +40,7 @@ class RNCallKeepTurboModuleFactory extends TurboModulesFactory {
   }
 }
 
-export class RNCallKeepPackage extends RNPackage {
+export class RNCallKeepPackage extends RNOHPackage {
   createTurboModulesFactory(ctx: TurboModuleContext): TurboModulesFactory {
     return new RNCallKeepTurboModuleFactory(ctx);
   }

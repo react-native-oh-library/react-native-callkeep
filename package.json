@@ -1,12 +1,18 @@
 {
-  "name": "@react-native-oh-tpl/react-native-callkeep",
+  "name": "@react-native-ohos/react-native-callkeep",
   "version": "4.3.14-0.0.1",
   "description": "iOS 10 CallKit and Android ConnectionService Framework For React Native",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "codegen-lib": "react-native codegen-lib-harmony --no-safety-check --npm-package-name react-native-callkeep --cpp-output-path ./harmony/call_keep/src/main/cpp/generated --ets-output-path ./harmony/call_keep/src/main/ets/generated --turbo-modules-spec-paths ./src  --arkts-components-spec-paths ./src"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/react-native-webrtc/react-native-callkeep.git"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
   },
   "author": "See AUTHORS file",
   "maintainers": [
@@ -25,10 +31,11 @@
   ],
   "harmony": {
     "alias": "react-native-callkeep",
-    "codegenConfig": {
-      "specPaths": [
-        "./src"
-      ]
+    "autolinking": {
+        "etsPackageClassName":"CallKeepPackage",
+        "cppPackageClassName":"CallKeepPackage",
+        "cmakeLibraryTargetName": "rnoh_call_keep", 
+        "ohPackageName": "@react-native-ohos/react-native-callkeep"
     }
   },
   "typings": "./index.d.ts",
